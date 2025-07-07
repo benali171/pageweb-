@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Haven - Restaurant Blog Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects */
+        .dish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .menu-category.active {
+            background-color: #f97316;
+            color: white;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #f97316;
+            border-radius: 4px;
+        }
+        
+        /* Parallax effect for hero */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-utensils text-orange-500 text-2xl"></i>
+                <span class="text-xl font-bold text-orange-500">Gourmet Haven</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-orange-500 font-medium">Home</a>
+                <a href="#menu" class="hover:text-orange-500 transition">Menu</a>
+                <a href="#specials" class="hover:text-orange-500 transition">Specials</a>
+                <a href="#testimonials" class="hover:text-orange-500 transition">Reviews</a>
+                <a href="#contact" class="hover:text-orange-500 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="parallax bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] h-screen flex items-center justify-center bg-opacity-90 bg-black/50 text-white">
+        <div class="container mx-auto px-4 text-center animate-fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Savor the Authentic Flavors</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Experience culinary excellence with our handcrafted dishes made from the freshest ingredients</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-medium transition duration-300 transform hover:scale-105">View Menu</a>
+                <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-full font-medium transition duration-300 transform hover:scale-105">Reservations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8 animate-fade-in delay-100">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Chef preparing food" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2 animate-fade-in delay-200">
+                    <h2 class="text-3xl font-bold mb-4 text-gray-800">Our Culinary Story</h2>
+                    <p class="text-gray-600 mb-6">Founded in 2010, Gourmet Haven has been serving exceptional cuisine crafted with passion and dedication. Our chef brings 20 years of international experience to create dishes that tell a story.</p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-seedling text-orange-500 text-2xl mr-3"></i>
+                            <span class="font-medium">Fresh Ingredients</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-utensils text-orange-500 text-2xl mr-3"></i>
+                            <span class="font-medium">Seasonal Menus</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-wine-glass-alt text-orange-500 text-2xl mr-3"></i>
+                            <span class="font-medium">Fine Wines</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-heart text-orange-500 text-2xl mr-3"></i>
+                            <span class="font-medium">Made with Love</span>
+                        </div>
+                    </div>
+                    <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium transition duration-300">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 animate-fade-in">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Our Menu</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover our exquisite selection of dishes prepared with the finest ingredients and culinary expertise</p>
+            </div>
+            
+            <!-- Menu Categories -->
+            <div class="flex overflow-x-auto pb-4 mb-8 scrollbar-hide animate-fade-in delay-100">
+                <div class="flex space-x-2 mx-auto">
+                    <button class="menu-category px-6 py-2 rounded-full border border-gray-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition active">All</button>
+                    <button class="menu-category px-6 py-2 rounded-full border border-gray-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition">Starters</button>
+                    <button class="menu-category px-6 py-2 rounded-full border border-gray-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition">Mains</button>
+                    <button class="menu-category px-6 py-2 rounded-full border border-gray-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition">Desserts</button>
+                    <button class="menu-category px-6 py-2 rounded-full border border-gray-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition">Drinks</button>
+                </div>
+            </div>
+            
+            <!-- Menu Items -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dish 1 -->
+                <div class="dish-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in delay-200">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Salad" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Mediterranean Salad</h3>
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">$12.99</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Fresh greens with cherry tomatoes, cucumber, olives, feta cheese, and our signature dressing</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Starter</span>
+                            <button class="text-orange-500 hover:text-orange-700 font-medium">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 2 -->
+                <div class="dish-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in delay-300">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80" alt="Pizza" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Truffle Pizza</h3>
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">$18.99</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Wood-fired pizza with truffle oil, wild mushrooms, mozzarella, and fresh arugula</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Main</span>
+                            <button class="text-orange-500 hover:text-orange-700 font-medium">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 3 -->
+                <div class="dish-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300 animate-fade-in delay-400">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80" alt="Dessert" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Chocolate Lava Cake</h3>
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">$8.99</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Warm chocolate cake with a molten center, served with vanilla bean ice cream</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Dessert</span>
+                            <button class="text-orange-500 hover:text-orange-700 font-medium">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 animate-fade-in">
+                <button class="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-3 rounded-full font-medium transition duration-300">View Full Menu</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specials Section -->
+    <section id="specials" class="py-16 bg-orange-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 animate-fade-in">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Today's Specials</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Chef's selection of exclusive dishes available for a limited time</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Special 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in delay-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Special Dish" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">SPECIAL</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Lobster Thermidor</h3>
+                        <p class="text-gray-600 mb-4">Classic French preparation with fresh lobster in a rich cream sauce with brandy and cheese</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-red-600 font-bold text-xl">$32.99</span>
+                                <span class="text-gray-400 line-through ml-2">$38.99</span>
+                            </div>
+                            <button class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full font-medium transition">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Special 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in delay-200">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Special Dish" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">LIMITED</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Wagyu Beef Burger</h3>
+                        <p class="text-gray-600 mb-4">Premium Japanese wagyu beef patty with truffle aioli, aged cheddar, and caramelized onions</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-red-600 font-bold text-xl">$24.99</span>
+                                <span class="text-gray-400 line-through ml-2">$29.99</span>
+                            </div>
+                            <button class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full font-medium transition">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Special 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-fade-in delay-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80" alt="Special Dish" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">NEW</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Matcha Tiramisu</h3>
+                        <p class="text-gray-600 mb-4">Innovative twist on the classic with layers of matcha-infused mascarpone and ladyfingers</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-red-600 font-bold text-xl">$10.99</span>
+                                <span class="text-gray-400 line-through ml-2">$12.99</span>
+                            </div>
+                            <button class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full font-medium transition">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 animate-fade-in">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">What Our Guests Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Hear from our satisfied customers about their dining experiences</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md animate-fade-in delay-100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J." class="h-12 w-12 rounded-full">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The truffle pizza was absolutely divine! The flavors were perfectly balanced and the crust was crispy yet chewy. Service was impeccable too."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md animate-fade-in delay-200">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T." class="h-12 w-12 rounded-full">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Michael T.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Came here for our anniversary and it was perfect. The lobster thermidor special was cooked to perfection, and the wine pairing suggestion was spot on."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md animate-fade-in delay-300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily R." class="h-12 w-12 rounded-full">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Emily R.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The atmosphere is wonderful and the food even better. The chocolate lava cake is a must-try! Will definitely be coming back with friends."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                <div class="overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Food" class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=742&q=80" alt="Food" class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Food" class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=710&q=80" alt="Food" class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8 animate-fade-in">
+                    <h2 class="text-3xl font-bold mb-6">Make a Reservation</h2>
+                    <p class="text-gray-300 mb-8">Book your table online or give us a call at (123) 456-7890. We look forward to serving you!</p>
+                    
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block mb-1">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="date" class="block mb-1">Date</label>
+                                <input type="date" id="date" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                            <div>
+                                <label for="time" class="block mb-1">Time</label>
+                                <input type="time" id="time" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="guests" class="block mb-1">Number of Guests</label>
+                            <select id="guests" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                                <option>1 person</option>
+                                <option>2 people</option>
+                                <option>3 people</option>
+                                <option>4 people</option>
+                                <option>5+ people</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-1">Special Requests</label>
+                            <textarea id="message" rows="3" class="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded font-medium transition duration-300 w-full">Book Table</button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2 lg:pl-8 animate-fade-in delay-100">
+                    <h2 class="text-3xl font-bold mb-6">Contact Information</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-orange-500 text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold mb-1">Address</h3>
+                                <p class="text-gray-300">123 Gourmet Street<br>Foodie District, FH 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-orange-500 text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold mb-1">Phone</h3>
+                                <p class="text-gray-300">(123) 456-7890<br>Reservations: (123) 456-7891</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-orange-500 text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold mb-1">Email</h3>
+                                <p class="text-gray-300">info@gourmethaven.com<br>reservations@gourmethaven.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-orange-500 text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold mb-1">Hours</h3>
+                                <p class="text-gray-300">
+                                    Monday - Thursday: 11:00 AM - 10:00 PM<br>
+                                    Friday - Saturday: 11:00 AM - 11:00 PM<br>
+                                    Sunday: 10:00 AM - 9:00 PM
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="font-bold mb-4">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <i class="fas fa-utensils text-orange-500 text-xl"></i>
+                    <span class="text-xl font-bold text-white">Gourmet Haven</span>
+                </div>
+                <div class="text-sm mb-4 md:mb-0">
+                    &copy; 2023 Gourmet Haven. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-orange-500 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-orange-500 transition">Terms of Service</a>
+                    <a href="#" class="hover:text-orange-500 transition">Careers</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-orange-500 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition opacity-0 invisible hover:bg-orange-600">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Menu category filter
+        const menuCategories = document.querySelectorAll('.menu-category');
+        
+        menuCategories.forEach(category => {
+            category.addEventListener('click', () => {
+                menuCategories.forEach(c => c.classList.remove('active', 'bg-orange-500', 'text-white', 'border-orange-500'));
+                category.classList.add('active', 'bg-orange-500', 'text-white', 'border-orange-500');
+                // Here you would typically filter menu items based on category
+                // For this template, we're just demonstrating the UI
+            });
+        });
+        
+        // Mobile menu toggle (would need additional HTML and CSS for full implementation)
+        document.querySelector('nav button').addEventListener('click', () => {
+            alert('Mobile menu would open here. For a complete implementation, you would need to add more HTML/CSS for the mobile menu drawer.');
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your reservation request! We will contact you shortly to confirm.');
+                contactForm.reset();
+            });
+        }
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=blackghost2025/gourmet-haven" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
